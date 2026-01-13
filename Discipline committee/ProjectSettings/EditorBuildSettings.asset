@@ -11,6 +11,15 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Demi/DemiScene.unity
     guid: ccbcc7820e949ce49b95b9078f3692b2
+  - enabled: 1
+    path: Assets/Scenes/TitleScene.unity
+    guid: 2cfc099e0d6b9f943b1744d4efd07348
+  - enabled: 1
+    path: Assets/Scenes/MainScene.unity
+    guid: 2cc088116696b2b42a507870a6174aff
+  - enabled: 1
+    path: Assets/Scenes/EndScene.unity
+    guid: 524a63c106590214085572647bb900b7
   m_configObjects:
     com.unity.addressableassets: {fileID: 11400000, guid: 95f22eca04831294b8d9a0c5465c4918, type: 2}
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
