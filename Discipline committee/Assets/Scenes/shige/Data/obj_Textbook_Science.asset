@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9b8628422b12d84a81516e62a36fc8e, type: 3}
+  m_Name: obj_Textbook_Science
+  m_EditorClassIdentifier: Assembly-CSharp::SmallObjectData
+  mesh: {fileID: 5060444177187149915, guid: 7f17e0c5f85a6264cbfe4806bb169c4e, type: 3}
+  material: {fileID: -710910164944623929, guid: 7f17e0c5f85a6264cbfe4806bb169c4e, type: 3}
+  scale: {x: 1, y: 1, z: 1}

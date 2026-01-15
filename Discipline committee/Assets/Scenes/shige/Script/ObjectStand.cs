@@ -2,12 +2,17 @@ using UnityEngine;
 
 public class ObjectStand : MonoBehaviour
 {
-    [SerializeField] Transform mountPoint;
+    [SerializeField] Transform[] mountPoints;
 
-    public void Place (SmallObjectController obj)
+        public Transform GetMountPoint(int index)
     {
-        obj.transform.SetParent(mountPoint);
-        obj.transform.localPosition = Vector3.zero;
-        obj.transform.localRotation = Quaternion.identity;
+        if (index < 0 || index >= mountPoints.Length)
+            return null;
+
+        return mountPoints[index];
+    
     }
+
+    
+    
 }
