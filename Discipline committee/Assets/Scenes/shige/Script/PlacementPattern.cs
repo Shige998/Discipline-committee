@@ -13,6 +13,4 @@ public class PlacementEntry
     public int standIndex;
     public int mountPointIndex;
     public SmallObjectData data;
-
-    public Vector3 rotation;
 }

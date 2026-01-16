@@ -9,6 +9,7 @@ public class SmallObjectController : MonoBehaviour
     {
         meshFilter.sharedMesh = data.mesh;
         meshRenderer.sharedMaterial = data.material;
+
         transform.localScale = data.scale;
         transform.localRotation = Quaternion.Euler(data.rotation);
     }
