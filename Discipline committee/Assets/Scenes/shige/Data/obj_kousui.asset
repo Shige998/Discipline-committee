@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e9b8628422b12d84a81516e62a36fc8e, type: 3}
-  m_Name: obj_manga
+  m_Name: obj_kousui
   m_EditorClassIdentifier: Assembly-CSharp::SmallObjectData
-  mesh: {fileID: -3943614623949762212, guid: ee349a7e46680a0439ba926dff4c6fa1, type: 3}
-  material: {fileID: -710910164944623929, guid: ee349a7e46680a0439ba926dff4c6fa1, type: 3}
-  scale: {x: 6, y: 6, z: 6}
+  mesh: {fileID: 7677731230783414044, guid: 0792d34214d0cef438d92c980d988c31, type: 3}
+  material: {fileID: -710910164944623929, guid: 0792d34214d0cef438d92c980d988c31, type: 3}
+  scale: {x: 1, y: 1, z: 1}
   rotation: {x: 0, y: 0, z: 0}

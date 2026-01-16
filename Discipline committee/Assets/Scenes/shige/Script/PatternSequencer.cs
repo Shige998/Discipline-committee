@@ -34,7 +34,7 @@ public class PatternSequencer : MonoBehaviour
             if (mount == null) continue;
 
             var obj = Instantiate(objectPrefab);
-            obj.Setup(entry.data);
+            obj.Apply(entry.data);
 
             obj.transform.SetParent(mount);
             obj.transform.localPosition = Vector3.zero;

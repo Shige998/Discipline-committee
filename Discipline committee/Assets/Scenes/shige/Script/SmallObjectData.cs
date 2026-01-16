@@ -1,6 +1,6 @@
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "Game/SmallObjectPattern")]
+[CreateAssetMenu(menuName = "SmallObject/Data")]
 public class  SmallObjectData : ScriptableObject 
 {
     public Mesh mesh;

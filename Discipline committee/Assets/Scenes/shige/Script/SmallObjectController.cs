@@ -5,10 +5,10 @@ public class SmallObjectController : MonoBehaviour
     [SerializeField] MeshFilter meshFilter;
     [SerializeField] MeshRenderer meshRenderer;
 
-    public void Setup(SmallObjectData data)
+    public void Apply(SmallObjectData data)
     {
-        meshFilter.sharedMesh = data.mesh;
-        meshRenderer.sharedMaterial = data.material;
+        meshFilter.mesh = data.mesh;
+        meshRenderer.material = data.material;
 
         transform.localScale = data.scale;
         transform.localRotation = Quaternion.Euler(data.rotation);
