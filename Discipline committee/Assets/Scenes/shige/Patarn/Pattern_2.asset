@@ -14,20 +14,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlacementPattern
   placements:
   - standIndex: 0
-    mountPointIndex: 0
-    data: {fileID: 0}
+    mountPointIndex: 1
+    data: {fileID: 11400000, guid: 918d4eb9079d7d44c8852ff6b150a1da, type: 2}
   - standIndex: 0
-    mountPointIndex: 0
-    data: {fileID: 0}
+    mountPointIndex: 2
+    data: {fileID: 11400000, guid: a7d00e07a94b28548a78f700d8f99ee4, type: 2}
   - standIndex: 0
-    mountPointIndex: 0
-    data: {fileID: 0}
+    mountPointIndex: 3
+    data: {fileID: 11400000, guid: beda0658253e5dc4f829f615a125256e, type: 2}
   - standIndex: 0
-    mountPointIndex: 0
-    data: {fileID: 0}
+    mountPointIndex: 4
+    data: {fileID: 11400000, guid: a7d00e07a94b28548a78f700d8f99ee4, type: 2}
   - standIndex: 0
-    mountPointIndex: 0
-    data: {fileID: 0}
+    mountPointIndex: 5
+    data: {fileID: 11400000, guid: 66923cc276818a14782f333c49c60f63, type: 2}
   - standIndex: 0
-    mountPointIndex: 0
-    data: {fileID: 0}
+    mountPointIndex: 6
+    data: {fileID: 11400000, guid: 8c15ffc98721559499875715f45e7b26, type: 2}

@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SmallObjectData
   mesh: {fileID: 5402579920150789728, guid: c3b891dc971bfb84d922dfe8bd2e8908, type: 3}
   material: {fileID: -710910164944623929, guid: c3b891dc971bfb84d922dfe8bd2e8908, type: 3}
-  scale: {x: 1, y: 1, z: 1}
+  scale: {x: 6, y: 6, z: 6}
   rotation: {x: 0, y: 0, z: 0}

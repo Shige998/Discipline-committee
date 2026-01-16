@@ -559,6 +559,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PatternSequencer
   availablePatterns:
   - {fileID: 11400000, guid: 19ef9801025a3494e9fb6463e6a3c4c2, type: 2}
+  - {fileID: 11400000, guid: b24cb9b34b0f39d40a8c49f460417fc0, type: 2}
   stands:
   - {fileID: 308366755}
   objectPrefab: {fileID: 210186814}
