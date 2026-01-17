@@ -5,6 +5,8 @@ public class SmallObjectController : MonoBehaviour
     [SerializeField] MeshFilter meshFilter;
     [SerializeField] MeshRenderer meshRenderer;
 
+    private SmallObjectData data;
+
     private string objectName;
         void Awake()
     {
@@ -18,5 +20,23 @@ public class SmallObjectController : MonoBehaviour
 
         transform.localScale = data.scale;
         transform.localRotation = Quaternion.Euler(data.rotation);
+    }
+
+    void OnMouseDown()
+    {
+        if (data == null)
+        {
+            Debug.LogWarning("SmallObjectDataÇ™ê›íËÇ≥ÇÍÇƒÇ¢Ç‹ÇπÇÒ");
+            return;
+        }
+
+        if (data.canRemove)
+        {
+            Debug.Log($"ÅyOKÅz{data.name}ÇÕè¡ÇµÇƒÇ¢Ç¢");
+        }
+        else
+        {
+            Debug.Log($"ÅyNGÅz{data.name}ÇÕè¡ÇµÇƒÇÕÇ¢ÇØÇ»Ç¢");
+        }
     }
 }

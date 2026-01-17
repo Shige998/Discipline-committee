@@ -9,5 +9,5 @@ public class  SmallObjectData : ScriptableObject
     public Material material;
     public Vector3 scale = Vector3.one;
     public Vector3 rotation;
-
+    public bool canRemove;
 }
