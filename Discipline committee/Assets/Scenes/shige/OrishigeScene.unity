@@ -255,7 +255,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 210186815}
-  - component: {fileID: 210186814}
   m_Layer: 0
   m_Name: SmallObject
   m_TagString: Untagged
@@ -263,20 +262,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &210186814
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 210186813}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2453c0a3206b24942ad75dcc81ec04a8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::SmallObjectController
-  meshFilter: {fileID: 279883691}
-  meshRenderer: {fileID: 279883689}
 --- !u!4 &210186815
 Transform:
   m_ObjectHideFlags: 0
@@ -305,6 +290,7 @@ GameObject:
   - component: {fileID: 279883689}
   - component: {fileID: 279883691}
   - component: {fileID: 279883692}
+  - component: {fileID: 279883693}
   m_Layer: 0
   m_Name: Model
   m_TagString: Untagged
@@ -404,6 +390,20 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &279883693
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 279883688}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2453c0a3206b24942ad75dcc81ec04a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SmallObjectController
+  meshFilter: {fileID: 279883691}
+  meshRenderer: {fileID: 279883689}
 --- !u!1 &308366750
 GameObject:
   m_ObjectHideFlags: 0
@@ -584,7 +584,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: b24cb9b34b0f39d40a8c49f460417fc0, type: 2}
   stands:
   - {fileID: 308366755}
-  objectPrefab: {fileID: 210186814}
+  objectPrefab: {fileID: 279883693}
   repeatCount: 1
 --- !u!4 &396265572
 Transform:
