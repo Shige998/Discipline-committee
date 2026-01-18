@@ -404,6 +404,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SmallObjectController
   meshFilter: {fileID: 279883691}
   meshRenderer: {fileID: 279883689}
+  data: {fileID: 0}
 --- !u!1 &308366750
 GameObject:
   m_ObjectHideFlags: 0

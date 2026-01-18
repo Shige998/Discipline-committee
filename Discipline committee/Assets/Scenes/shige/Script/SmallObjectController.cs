@@ -5,7 +5,7 @@ public class SmallObjectController : MonoBehaviour
     [SerializeField] MeshFilter meshFilter;
     [SerializeField] MeshRenderer meshRenderer;
 
-    private SmallObjectData data;
+    [SerializeField]private SmallObjectData data;
 
     private string objectName;
         void Awake()
