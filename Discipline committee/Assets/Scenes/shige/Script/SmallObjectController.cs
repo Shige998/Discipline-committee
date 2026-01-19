@@ -7,14 +7,13 @@ public class SmallObjectController : MonoBehaviour
 
     [SerializeField]private SmallObjectData data;
 
-    private string objectName;
         void Awake()
     {
-        objectName = gameObject.name;
     }
 
     public void Apply(SmallObjectData data)
     {
+        this.data = data;
         meshFilter.mesh = data.mesh;
         meshRenderer.material = data.material;
 
@@ -30,7 +29,15 @@ public class SmallObjectController : MonoBehaviour
             return;
         }
 
-        if (data.canRemove)
+        if (JudgeManager.Instance == null)
+        {
+            Debug.LogWarning("JudgeManager Ç™ë∂ç›ÇµÇ‹ÇπÇÒ");
+            return;
+        }
+
+        bool result = JudgeManager.Instance.Judge(data);
+
+        if (result)
         {
             Debug.Log($"ÅyOKÅz{data.name}ÇÕè¡ÇµÇƒÇ¢Ç¢");
         }
