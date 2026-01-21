@@ -15,9 +15,22 @@ public class JudgeManager : MonoBehaviour
 
     public bool Judge(SmallObjectData data)
     {
-        bool patternOK = data.pattern == correctPattern;
-        bool deleteOK = data.canRemove;
+        if (data == null)
+        {
+            Debug.LogWarning("Judge失敗：dataがnull");
+            return false;
+        }
 
-        return patternOK && deleteOK;
+        // 今回は「消していいか」だけを見る
+        if (data.canRemove)
+        {
+            Debug.Log("判定：OK（正解）");
+            return true;
+        }
+        else
+        {
+            Debug.Log("判定：NG（不正解）");
+            return false;
+        }
     }
 }

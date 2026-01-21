@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Day1_PhaseA
   m_EditorClassIdentifier: Assembly-CSharp::PhasePattern
   patterns:
-  - {fileID: 11400000, guid: 19ef9801025a3494e9fb6463e6a3c4c2, type: 2}
-  - {fileID: 11400000, guid: b24cb9b34b0f39d40a8c49f460417fc0, type: 2}
+  - {fileID: 11400000, guid: 3a17db50d3db9004d8570adfb3924a52, type: 2}
+  - {fileID: 11400000, guid: eae98ada999c1a04caf2b5ecb07dfb0f, type: 2}

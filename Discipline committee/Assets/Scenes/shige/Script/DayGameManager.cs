@@ -3,22 +3,26 @@ using UnityEngine;
 public class DayGameManager : MonoBehaviour
 {
     public DayData dayData;
+
+    [Header("ë‰ç¿ÅiMountPointÇéqÇ…éùÇ¬Åj")]
     public Transform[] stands;
+
+    [Header("è¨ï®Prefab")]
     public GameObject smallObjectPrefab;
 
-    private int phaseIndex = 0;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    int phaseIndex = 0;
+
     void Start()
     {
         StartPhaseA();
     }
 
-    // Update is called once per frame
     void StartPhaseA()
     {
         ApplyRandomPattern(dayData.phaseA);
         phaseIndex = 0;
     }
+
     void StartPhaseB()
     {
         ApplyRandomPattern(dayData.phaseB);
@@ -27,29 +31,36 @@ public class DayGameManager : MonoBehaviour
 
     void ApplyRandomPattern(PhasePattern phase)
     {
-        var pattern = phase.patterns[Random.Range(0,phase.patterns.Length)];
+        var pattern = phase.patterns[Random.Range(0, phase.patterns.Length)];
 
         foreach (var entry in pattern.placements)
         {
-            Transform mount = stands[entry.standIndex].GetChild(entry.mountPointIndex);
+            Transform mount =
+                stands[entry.standIndex].GetChild(entry.mountPointIndex);
 
+            Vector3 spawnPos =
+                mount.position + Vector3.up * entry.data.heightOffset;
 
-            var obj = Instantiate(smallObjectPrefab,
-                mount.position,
-                mount.rotation
-                );
+            var obj = Instantiate(
+                smallObjectPrefab,
+                spawnPos,
+                Quaternion.Euler(entry.data.rotation)
+            );
 
             obj.GetComponent<SmallObjectController>()
                 .Apply(entry.data);
+
+            obj.transform.localScale = entry.data.scale;
         }
     }
 
     public void FinishPhase()
     {
-        foreach (var obj in FindObjectsOfType<SmallObjectController>())
+        foreach (var obj in FindObjectsByType<SmallObjectController>(FindObjectsSortMode.None))
         {
             Destroy(obj.gameObject);
         }
+
 
         if (phaseIndex == 0)
             StartPhaseB();

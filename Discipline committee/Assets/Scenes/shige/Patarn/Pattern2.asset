@@ -10,24 +10,24 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c7bd766dc3ff02340b7af7147ae48614, type: 3}
-  m_Name: Pattern_2
+  m_Name: Pattern2
   m_EditorClassIdentifier: Assembly-CSharp::PlacementPattern
   placements:
   - standIndex: 0
-    mountPointIndex: 1
-    data: {fileID: 11400000, guid: 918d4eb9079d7d44c8852ff6b150a1da, type: 2}
-  - standIndex: 0
-    mountPointIndex: 2
-    data: {fileID: 11400000, guid: 60a7413a8418de041ae1455e94fcb913, type: 2}
-  - standIndex: 0
-    mountPointIndex: 3
-    data: {fileID: 11400000, guid: beda0658253e5dc4f829f615a125256e, type: 2}
-  - standIndex: 0
-    mountPointIndex: 4
-    data: {fileID: 11400000, guid: a7d00e07a94b28548a78f700d8f99ee4, type: 2}
-  - standIndex: 0
-    mountPointIndex: 5
+    mountPointIndex: 0
     data: {fileID: 11400000, guid: 66923cc276818a14782f333c49c60f63, type: 2}
   - standIndex: 0
-    mountPointIndex: 6
+    mountPointIndex: 1
+    data: {fileID: 11400000, guid: 60a7413a8418de041ae1455e94fcb913, type: 2}
+  - standIndex: 0
+    mountPointIndex: 2
+    data: {fileID: 11400000, guid: beda0658253e5dc4f829f615a125256e, type: 2}
+  - standIndex: 0
+    mountPointIndex: 3
+    data: {fileID: 11400000, guid: a7d00e07a94b28548a78f700d8f99ee4, type: 2}
+  - standIndex: 0
+    mountPointIndex: 4
+    data: {fileID: 11400000, guid: 918d4eb9079d7d44c8852ff6b150a1da, type: 2}
+  - standIndex: 0
+    mountPointIndex: 5
     data: {fileID: 11400000, guid: 8c15ffc98721559499875715f45e7b26, type: 2}

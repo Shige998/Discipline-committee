@@ -12,7 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9b8628422b12d84a81516e62a36fc8e, type: 3}
   m_Name: obj_Note_Blue
   m_EditorClassIdentifier: Assembly-CSharp::SmallObjectData
+  displayName: 
   mesh: {fileID: -8360744059208733440, guid: f37b04091ed34b04c9e3c209bbb733db, type: 3}
   material: {fileID: -710910164944623929, guid: f37b04091ed34b04c9e3c209bbb733db, type: 3}
   scale: {x: 6, y: 6, z: 6}
   rotation: {x: -90, y: 0, z: 0}
+  heightOffset: 0.5
+  canRemove: 1

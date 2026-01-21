@@ -12,7 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9b8628422b12d84a81516e62a36fc8e, type: 3}
   m_Name: obj_pencase_black
   m_EditorClassIdentifier: Assembly-CSharp::SmallObjectData
+  displayName: 
   mesh: {fileID: 5402579920150789728, guid: c3b891dc971bfb84d922dfe8bd2e8908, type: 3}
   material: {fileID: -710910164944623929, guid: c3b891dc971bfb84d922dfe8bd2e8908, type: 3}
   scale: {x: 6, y: 6, z: 6}
   rotation: {x: 0, y: 0, z: 0}
+  heightOffset: 0.5
+  canRemove: 1

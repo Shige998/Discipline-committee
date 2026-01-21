@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Day1_A
   m_EditorClassIdentifier: Assembly-CSharp::DayData
   phaseA: {fileID: 11400000, guid: b938792d0e5aaa34abf04266aca2ec28, type: 2}
-  phaseB: {fileID: 0}
+  phaseB: {fileID: 11400000, guid: 109b84e071cebaa46a4bf07c4afa8c0a, type: 2}

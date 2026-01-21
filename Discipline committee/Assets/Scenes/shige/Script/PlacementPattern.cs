@@ -1,6 +1,5 @@
 using UnityEngine;
 
-
 [CreateAssetMenu(menuName = "Game/PlacementPattern")]
 public class PlacementPattern : ScriptableObject
 {
