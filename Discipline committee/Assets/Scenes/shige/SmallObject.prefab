@@ -27,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 274958505630049685}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 7.35299, y: 0, z: -2.4644501}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -100,6 +100,7 @@ GameObject:
   - component: {fileID: 4464179337268059936}
   - component: {fileID: 6784262176247925370}
   - component: {fileID: 1489134095440692091}
+  - component: {fileID: 2539543835349610701}
   m_Layer: 0
   m_Name: SmallObject
   m_TagString: Untagged
@@ -156,5 +157,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2453c0a3206b24942ad75dcc81ec04a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SmallObjectController
-  meshFilter: {fileID: 0}
-  meshRenderer: {fileID: 0}
+  meshFilter: {fileID: 3155325429135007395}
+  meshRenderer: {fileID: 2190360725323569704}
+--- !u!114 &2539543835349610701
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8776276561881212234}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4baf8a0fbcabb143be3aada802d955f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ClickJudge
