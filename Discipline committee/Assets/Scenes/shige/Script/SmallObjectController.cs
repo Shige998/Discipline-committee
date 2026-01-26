@@ -2,11 +2,15 @@ using UnityEngine;
 
 public class SmallObjectController : MonoBehaviour
 {
-    public SmallObjectData data;
+    [SerializeField] MeshFilter meshFilter;
+    [SerializeField] MeshRenderer meshRenderer;
 
-    // Åö Ç±ÇÍÇí«â¡
-    public void Apply(SmallObjectData newData)
+    public void Apply(SmallObjectData data)
     {
-        data = newData;
+        meshFilter.mesh = data.mesh;
+        meshRenderer.material = data.material;
+
+        transform.localScale = data.scale;
+        transform.localRotation = Quaternion.Euler(data.rotation);
     }
 }
