@@ -24,7 +24,7 @@ public class DayGameManager : MonoBehaviour
                 mount.rotation
             );
 
-            obj.SetData(entry.data);
+            obj.Apply(entry.data);
 
         }
     }
