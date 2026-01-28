@@ -17,5 +17,4 @@ MonoBehaviour:
   material: {fileID: -710910164944623929, guid: 7f17e0c5f85a6264cbfe4806bb169c4e, type: 3}
   scale: {x: 6, y: 6, z: 6}
   rotation: {x: -90, y: 0, z: 0}
-  heightOffset: 0.5
-  canRemove: 1
+  canRemove: 0

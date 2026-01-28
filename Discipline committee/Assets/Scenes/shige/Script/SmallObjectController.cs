@@ -1,48 +1,54 @@
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 [RequireComponent(typeof(BoxCollider))]
-public class SmallObjectController : MonoBehaviour
+public class SmallObjectController : MonoBehaviour, IPointerClickHandler
 {
+    [Header("Object Data")]
     public SmallObjectData data;
 
-    // DayGameManager から呼ばれる
+    MeshFilter meshFilter;
+    MeshRenderer meshRenderer;
+    BoxCollider boxCollider;
+
+    void Awake()
+    {
+        meshFilter = GetComponentInChildren<MeshFilter>();
+        meshRenderer = GetComponentInChildren<MeshRenderer>();
+        boxCollider = GetComponent<BoxCollider>();
+
+        if (meshFilter == null || meshRenderer == null)
+            Debug.LogError("MeshFilter / MeshRenderer が見つかりません", this);
+    }
+
     public void Apply(SmallObjectData d)
     {
         data = d;
+        if (data == null) return;
 
-        var mf = GetComponentInChildren<MeshFilter>();
-        var mr = GetComponentInChildren<MeshRenderer>();
-
-        if (mf == null || mr == null)
-        {
-            Debug.LogError("MeshFilter / MeshRenderer が見つかりません", this);
-            return;
-        }
-
-        mf.mesh = d.mesh;
-        mr.material = d.material;
-
-        transform.localScale = d.scale;
-        transform.localRotation = Quaternion.Euler(d.rotation);
+        meshFilter.mesh = data.mesh;
+        meshRenderer.material = data.material;
+        transform.localScale = data.scale;
+        transform.localRotation = Quaternion.Euler(data.rotation);
 
         FitColliderToMesh();
     }
 
     void FitColliderToMesh()
     {
-        var mf = GetComponentInChildren<MeshFilter>();
-        var col = GetComponent<BoxCollider>();
+        if (meshFilter == null || meshFilter.mesh == null) return;
 
-        if (mf == null || mf.mesh == null || col == null) return;
-
-        Bounds b = mf.mesh.bounds;
-        col.center = b.center;
-        col.size = b.size;
+        Bounds b = meshFilter.mesh.bounds;
+        boxCollider.center = b.center;
+        boxCollider.size = b.size;
+        boxCollider.isTrigger = false;
     }
 
-    // Button から呼ばれる
-    public void OnClick()
+    // ← ここが EventSystem 経由のクリック
+    public void OnPointerClick(PointerEventData eventData)
     {
+        Debug.Log($"クリックされた: {gameObject.name}");
+
         if (data == null)
         {
             Debug.LogWarning("Data がありません", this);
@@ -51,5 +57,8 @@ public class SmallObjectController : MonoBehaviour
 
         bool result = JudgeManager.Instance.Judge(data);
         Debug.Log(result ? "正解！" : "不正解！");
+
+        if (result && data.canRemove)
+            Destroy(gameObject);
     }
 }
