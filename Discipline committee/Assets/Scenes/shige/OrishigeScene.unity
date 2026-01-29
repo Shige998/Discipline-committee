@@ -531,10 +531,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8cb0c74b98af5b747919ecf54e465984, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DayGameManager
-  pattern: {fileID: 11400000, guid: 3a17db50d3db9004d8570adfb3924a52, type: 2}
-  stands:
-  - {fileID: 308366754}
-  smallObjectPrefab: {fileID: 1118044491}
+  spawnPoints:
+  - {fileID: 1525637445}
+  - {fileID: 1246094184}
+  - {fileID: 654775697}
+  - {fileID: 1181342696}
+  - {fileID: 934605259}
+  - {fileID: 1170541899}
+  - {fileID: 1669349860}
+  - {fileID: 669702364}
+  - {fileID: 1048158048}
+  - {fileID: 1165779947}
+  smallObjectPrefab: {fileID: 2010836296}
+  correctObjects:
+  - {fileID: 11400000, guid: 66923cc276818a14782f333c49c60f63, type: 2}
+  - {fileID: 11400000, guid: 6d8b3264950d26b479e2a1c890be92bf, type: 2}
+  - {fileID: 11400000, guid: 71897a83cb93f7044910f205a462cd1f, type: 2}
+  - {fileID: 11400000, guid: 60a7413a8418de041ae1455e94fcb913, type: 2}
+  - {fileID: 11400000, guid: 43a835760a1794a4cbec794d37350960, type: 2}
+  - {fileID: 11400000, guid: beda0658253e5dc4f829f615a125256e, type: 2}
+  - {fileID: 11400000, guid: a7d00e07a94b28548a78f700d8f99ee4, type: 2}
+  - {fileID: 11400000, guid: 918d4eb9079d7d44c8852ff6b150a1da, type: 2}
+  - {fileID: 11400000, guid: e50b39d753c9ed64189ce6f77fbd4bce, type: 2}
+  - {fileID: 11400000, guid: 69b60b581c0e7c84bb90f09b3003d73d, type: 2}
+  wrongObjects:
+  - {fileID: 11400000, guid: 8c15ffc98721559499875715f45e7b26, type: 2}
+  - {fileID: 11400000, guid: 8d3c51dcaa6eb3248b059e4c05e74e98, type: 2}
+  CorrectCount: 5
+  wrongCount: 1
 --- !u!4 &592025779
 Transform:
   m_ObjectHideFlags: 0
@@ -888,17 +912,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::MountPointGizmo
   size: 0.1
   color: {r: 0, g: 1, b: 0, a: 1}
---- !u!114 &1118044491 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1489134095440692091, guid: 0b03d92b5d73ce941a9802709b030f7f, type: 3}
-  m_PrefabInstance: {fileID: 9106661362066931316}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2453c0a3206b24942ad75dcc81ec04a8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::SmallObjectController
 --- !u!1 &1165779946
 GameObject:
   m_ObjectHideFlags: 0
@@ -1175,6 +1188,58 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::MountPointGizmo
   size: 0.1
   color: {r: 0, g: 1, b: 0, a: 1}
+--- !u!1 &1933449683
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1933449685}
+  - component: {fileID: 1933449684}
+  m_Layer: 0
+  m_Name: KarmaManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1933449684
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1933449683}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1a48e65af06376459648da9716aba2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::KarmaManager
+  karma: 100
+  minKarma: 0
+  maxKarma: 200
+--- !u!4 &1933449685
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1933449683}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -6.42292, y: 2.68986, z: 3.16522}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2010836296 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8776276561881212234, guid: 0b03d92b5d73ce941a9802709b030f7f, type: 3}
+  m_PrefabInstance: {fileID: 9106661362066931316}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2071446960
 GameObject:
   m_ObjectHideFlags: 0
@@ -1344,3 +1409,4 @@ SceneRoots:
   - {fileID: 9106661362066931316}
   - {fileID: 481846595}
   - {fileID: 2101502168}
+  - {fileID: 1933449685}

@@ -17,8 +17,7 @@ public class SmallObjectController : MonoBehaviour, IPointerClickHandler
         meshRenderer = GetComponentInChildren<MeshRenderer>();
         boxCollider = GetComponent<BoxCollider>();
 
-        if (meshFilter == null || meshRenderer == null)
-            Debug.LogError("MeshFilter / MeshRenderer が見つかりません", this);
+       
     }
 
     public void Apply(SmallObjectData d)
@@ -26,39 +25,38 @@ public class SmallObjectController : MonoBehaviour, IPointerClickHandler
         data = d;
         if (data == null) return;
 
-        meshFilter.mesh = data.mesh;
-        meshRenderer.material = data.material;
-        transform.localScale = data.scale;
-        transform.localRotation = Quaternion.Euler(data.rotation);
+        meshFilter.mesh = d.mesh;
+        meshRenderer.material = d.material;
+        transform.localScale = d.scale;
+        transform.localRotation = Quaternion.Euler(d.rotation);
 
         FitColliderToMesh();
     }
 
     void FitColliderToMesh()
     {
-        if (meshFilter == null || meshFilter.mesh == null) return;
+        
 
         Bounds b = meshFilter.mesh.bounds;
         boxCollider.center = b.center;
         boxCollider.size = b.size;
-        boxCollider.isTrigger = false;
     }
 
     // ← ここが EventSystem 経由のクリック
     public void OnPointerClick(PointerEventData eventData)
     {
-        Debug.Log($"クリックされた: {gameObject.name}");
+        Judge();
+    }
 
-        if (data == null)
-        {
-            Debug.LogWarning("Data がありません", this);
-            return;
-        }
+    void Judge()
+    {
+        if (data == null) return;
 
-        bool result = JudgeManager.Instance.Judge(data);
-        Debug.Log(result ? "正解！" : "不正解！");
+        KarmaManager.Instance.AddKarma(data.karmaValue);
 
-        if (result && data.canRemove)
-            Destroy(gameObject);
+        Debug.Log(data.resultType == ObjectResultType.Correct ? "正解！" : "不正解!");
+
+        //前まで一部しか消えないようにしていたため修正しています
+        Destroy(gameObject);
     }
 }

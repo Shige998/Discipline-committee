@@ -1,5 +1,10 @@
 using UnityEngine;
 
+public enum ObjectResultType
+{
+    Correct,
+    Wrong
+}
 [CreateAssetMenu(menuName = "SmallObject/Data")]
 public class SmallObjectData : ScriptableObject
 {
@@ -8,5 +13,9 @@ public class SmallObjectData : ScriptableObject
     public Material material;
     public Vector3 scale = Vector3.one;
     public Vector3 rotation;
-    public bool canRemove; // © ¡‚Íg‚í‚È‚¢‚¯‚ÇÁ‚³‚È‚­‚ÄOK
+    [Header("”»’è")]
+    public ObjectResultType resultType;
+
+    [Header("ƒJƒ‹ƒ}•Ï“®—Ê")]
+    public int karmaValue;
 }
