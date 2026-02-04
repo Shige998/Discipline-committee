@@ -16,6 +16,6 @@ public class HumanData : ScriptableObject
 
 public enum Gender
 {
-    Male,
-    Female
+    Boy,
+    Girl
 }

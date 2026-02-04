@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0be55d84ed41e17459477f3eeedd8b05, type: 3}
+  m_Name: GirlFace
+  m_EditorClassIdentifier: Assembly-CSharp::FaceExpressionSet
+  gender: 1
+  normal: {fileID: 2800000, guid: 18839c89bf79f1549ac80ad93cc1377f, type: 3}
+  happy: {fileID: 2800000, guid: 49dc9780a62fe2541a4e9f6411751af3, type: 3}
+  angry: {fileID: 2800000, guid: d16202a8fc1a90c4b8d7ad16f11d204a, type: 3}
+  sad: {fileID: 2800000, guid: e386b5a6d8daa7045a3656e8e3d70ec7, type: 3}
