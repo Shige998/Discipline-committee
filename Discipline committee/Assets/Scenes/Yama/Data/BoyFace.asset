@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: BoyFace
   m_EditorClassIdentifier: Assembly-CSharp::FaceExpressionSet
   gender: 0
-  normal: {fileID: 2800000, guid: 2641050e45e83ba4b8cbfcd369bbba3e, type: 3}
-  happy: {fileID: 2800000, guid: c5a1a1842bf4ef8459058cf4275d12a2, type: 3}
-  angry: {fileID: 2800000, guid: 4116235c09bf0a849b413968b6692f75, type: 3}
-  sad: {fileID: 2800000, guid: 54b95eb862e19d44b816c6663a85ba51, type: 3}
+  normal: {fileID: 2100000, guid: 807c6d12e46f2e04595b9bf4e07b89e1, type: 2}
+  happy: {fileID: 2100000, guid: 417865e5a53ecfe43a5df6e039a0fad9, type: 2}
+  angry: {fileID: 2100000, guid: 32104ce3ab768674e85904fd80184ca5, type: 2}
+  sad: {fileID: 2100000, guid: 17ef715afedefab4d911e866dd27d9ff, type: 2}

@@ -7,8 +7,8 @@ public class FaceController : MonoBehaviour
     private Material faceMaterial;
     private FaceExpressionSet expressionSet;
 
-    private static readonly int MainTex =
-        Shader.PropertyToID("_BaseMap"); // Built-in‚È‚ç "_MainTex"
+    //private static readonly int MainTex =
+    //    Shader.PropertyToID("_BaseMap"); // Built-in‚È‚ç "_MainTex"
 
     private void Awake()
     {
@@ -25,7 +25,9 @@ public class FaceController : MonoBehaviour
     {
         if (expressionSet == null) { return; }
 
-        var tex = expressionSet.Get(type);
-        faceMaterial.SetTexture(MainTex, tex);
+        var mat = expressionSet.Get(type);
+        var mats = bodyRenderer.materials;
+        mats[0] = mat;
+        bodyRenderer.materials = mats;
     }
 }

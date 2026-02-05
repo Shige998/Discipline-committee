@@ -8,10 +8,10 @@ public class HumanData : ScriptableObject
 {
     public Gender gender;
 
-    [Header("Parts")]
-    public GameObject bodyPrefab;
-    public GameObject hairPrefab;
-    public FaceExpressionSet faceExpressionSet;
+    [Header("Default Parts")]
+    public GameObject bodyOverride;
+    public GameObject hairOverride;
+    public FaceExpressionSet faceOverride;
 }
 
 public enum Gender

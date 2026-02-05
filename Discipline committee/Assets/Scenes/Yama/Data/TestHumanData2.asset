@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6b3c05e21efc7f84eb36aefa8b56849a, type: 3}
-  m_Name: HumanData
+  m_Name: TestHumanData2
   m_EditorClassIdentifier: Assembly-CSharp::HumanData
-  gender: 0
-  bodyPrefab: {fileID: 1656824010157878063, guid: d57fbcca1ef65cf4f8316b628476c69e, type: 3}
-  hairPrefab: {fileID: 6260851471494943874, guid: f2ed955f854cb554bae859e68e1e6a14, type: 3}
-  faceExpressionSet: {fileID: 11400000, guid: 90b49ae65fe493948ac573df740cd186, type: 2}
+  gender: 1
+  bodyOverride: {fileID: 0}
+  hairOverride: {fileID: 0}
+  faceOverride: {fileID: 0}

@@ -17,12 +17,12 @@ public class FaceExpressionSet : ScriptableObject
     public Gender gender;
 
     [Header("Face Textures")]
-    public Texture2D normal;
-    public Texture2D happy;
-    public Texture2D angry;
-    public Texture2D sad;
+    public Material normal;
+    public Material happy;
+    public Material angry;
+    public Material sad;
 
-    public Texture2D Get(FaceExpressionType type)
+    public Material Get(FaceExpressionType type)
     {
         return type switch
         {

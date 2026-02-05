@@ -277,6 +277,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::HumanTestSpawner
   humanPrefab: {fileID: 1308460558}
   testData: {fileID: 11400000, guid: 6cad588e922e9ac42840f4368f9b3812, type: 2}
+  spawnPos: {x: 0, y: 0, z: -8}
 --- !u!4 &344261335
 Transform:
   m_ObjectHideFlags: 0
@@ -491,6 +492,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::HumanAssembler
   bodyRoot: {fileID: 1917486552}
   hairRoot: {fileID: 417703856}
+  genderSets:
+  - {fileID: 11400000, guid: 0af7bf6684575d74681a7d1ac54bd01f, type: 2}
+  - {fileID: 11400000, guid: 99a7d5b4f395d9140a8a6a6b551f61c7, type: 2}
 --- !u!4 &1308460559
 Transform:
   m_ObjectHideFlags: 0
