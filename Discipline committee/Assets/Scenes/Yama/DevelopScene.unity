@@ -276,7 +276,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HumanTestSpawner
   humanPrefab: {fileID: 1308460558}
-  testData: {fileID: 11400000, guid: 6cad588e922e9ac42840f4368f9b3812, type: 2}
+  testData: {fileID: 11400000, guid: 85dc70df294b2ee4796930796b0401f5, type: 2}
   spawnPos: {x: 0, y: 0, z: -8}
 --- !u!4 &344261335
 Transform:

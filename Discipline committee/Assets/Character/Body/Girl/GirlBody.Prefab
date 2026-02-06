@@ -48,10 +48,38 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7718111961137084756, guid: b8f31e735b9f76b4095d7302b50af6ed, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 7053c80b1d5cbc64c8e073f8fde56d42, type: 2}
+    - target: {fileID: -6726398531563705017, guid: b8f31e735b9f76b4095d7302b50af6ed, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 7053c80b1d5cbc64c8e073f8fde56d42, type: 2}
+    - target: {fileID: -2338691412615555268, guid: b8f31e735b9f76b4095d7302b50af6ed, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 7053c80b1d5cbc64c8e073f8fde56d42, type: 2}
+    - target: {fileID: -280181558770978683, guid: b8f31e735b9f76b4095d7302b50af6ed, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 7053c80b1d5cbc64c8e073f8fde56d42, type: 2}
     - target: {fileID: 919132149155446097, guid: b8f31e735b9f76b4095d7302b50af6ed, type: 3}
       propertyPath: m_Name
       value: GirlBody
       objectReference: {fileID: 0}
+    - target: {fileID: 1400731053923130836, guid: b8f31e735b9f76b4095d7302b50af6ed, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 7053c80b1d5cbc64c8e073f8fde56d42, type: 2}
+    - target: {fileID: 1635453026723376196, guid: b8f31e735b9f76b4095d7302b50af6ed, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 7053c80b1d5cbc64c8e073f8fde56d42, type: 2}
+    - target: {fileID: 3303539654093948272, guid: b8f31e735b9f76b4095d7302b50af6ed, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 7053c80b1d5cbc64c8e073f8fde56d42, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
