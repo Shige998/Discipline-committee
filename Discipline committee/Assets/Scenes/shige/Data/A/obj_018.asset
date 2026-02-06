@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9b8628422b12d84a81516e62a36fc8e, type: 3}
+  m_Name: obj_018
+  m_EditorClassIdentifier: Assembly-CSharp::SmallObjectData
+  displayName: 
+  mesh: {fileID: 7282685278029030909, guid: 783fb6138f158e8469d83f6c4265f755, type: 3}
+  material: {fileID: -710910164944623929, guid: 783fb6138f158e8469d83f6c4265f755, type: 3}
+  scale: {x: 6, y: 6, z: 6}
+  rotation: {x: -90, y: 0, z: 0}
+  resultType: 1
+  karmaValue: -20
