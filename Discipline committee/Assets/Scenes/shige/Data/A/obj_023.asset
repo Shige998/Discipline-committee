@@ -17,5 +17,5 @@ MonoBehaviour:
   material: {fileID: 8290782892783832528, guid: 8381c13a558559144b6973543bd146c8, type: 3}
   scale: {x: 6, y: 6, z: 6}
   rotation: {x: -90, y: 0, z: 0}
-  resultType: 0
+  resultType: 1
   karmaValue: 0
