@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: obj_013b
   m_EditorClassIdentifier: Assembly-CSharp::SmallObjectData
   displayName: 
-  mesh: {fileID: 7229389490517828034, guid: 4dc3aa1ba01a0af458a9236fd69c31ae, type: 3}
-  material: {fileID: 2100000, guid: ea08c163fdf2a8b498d4e5a3e1a35fcc, type: 2}
+  mesh: {fileID: 7229389490517828034, guid: 40e913c2e9b384648ac7ac343f86f94f, type: 3}
+  material: {fileID: 7893120158540049202, guid: 40e913c2e9b384648ac7ac343f86f94f, type: 3}
   scale: {x: 6, y: 6, z: 6}
   rotation: {x: 0, y: 0, z: 0}
   resultType: 0
