@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.UIElements;
 
 public class HumanAssembler : MonoBehaviour
 {
@@ -7,81 +6,53 @@ public class HumanAssembler : MonoBehaviour
     [SerializeField] private Transform bodyRoot;
     [SerializeField] private Transform hairRoot;
 
-    [Header("Gender Sets")]
-    [SerializeField] private GenderSet[] genderSets;
+    // 現在生成されているキャラの顔を保持する（ボタン用）
+    private FaceController currentFace;
 
     public void Assemble(HumanData data)
     {
-        GenderSet set = GetGenderSet(data.gender);
+        // 既存のキャラを消す（もし必要なら。今回は追加生成の前提）
+        // foreach (Transform child in bodyRoot) Destroy(child.gameObject);
 
-        if (set == null) 
+        // --- 1. Body を生成 ---
+        GameObject bodyObj = Instantiate(data.bodyPrefab, bodyRoot);
+        bodyObj.transform.localPosition = Vector3.zero;
+        bodyObj.transform.localRotation = Quaternion.identity;
+
+        // --- 2. FaceController の初期設定 ---
+        currentFace = bodyObj.GetComponentInChildren<FaceController>();
+        if (currentFace != null)
         {
-            Debug.LogError($"GenderSet not found for {data.gender}");
-            return;
-        }
-
-        GameObject body =
-            data.bodyOverride != null ? data.bodyOverride : set.defaultBodyPrefab;
-
-        GameObject hair =
-            data.hairOverride != null ? data.hairOverride : set.defaultHairPrefab;
-
-        FaceExpressionSet face =
-            data.faceOverride != null ? data.faceOverride : set.defaultFaceSet;
-
-        var faceController = GetComponentInChildren<FaceController>();
-
-        InstantiateBodyPart(body, bodyRoot);
-        InstantiateHairPart(hair, hairRoot);
-
-        //if (faceController != null)
-        //{
-        //    faceController.Initialize(data.faceExpressionSet);
-        //}
-    }
-
-    private GenderSet GetGenderSet(Gender gender)
-    {
-        foreach (var set in genderSets)
-        {
-            if (set.gender == gender) { return set; }
-        }
-        return null;
-    }
-
-    private void InstantiateBodyPart(GameObject prefab, Transform parent)
-    {
-        if(prefab == null) { return; }
-        if(parent == null) { return; }
-
-        var obj = Instantiate(prefab, parent);
-
-        obj.transform.localPosition = Vector3.zero;
-        obj.transform.localRotation = Quaternion.identity;
-        obj.transform.localScale = Vector3.one;
-    }
-
-    private void InstantiateHairPart(GameObject prefab, Transform parent)
-    {
-        if(prefab == null) { return; }
-        if(parent == null) { return; }
-
-        var obj = Instantiate(prefab, parent);
-
-        var anchor = obj.GetComponent<HairAnchor>();
-        if (anchor != null) 
-        {
-            obj.transform.localPosition = anchor.localPosition;
-            obj.transform.localRotation = Quaternion.Euler(anchor.localRotation);
-            obj.transform.localScale = anchor.localScale;
+            // ここがポイント：SOに設定された顔を強制的に適用する
+            if (data.faceMaterial != null)
+            {
+                // FaceControllerに新しいメソッド「Initialize」を作ると綺麗ですが、
+                // 今回は直接マテリアルを流し込むか、SetDefault等を呼ぶ形にします
+                currentFace.ApplyFaceManual(data.faceMaterial);
+            }
         }
         else
         {
-            // 保険
-            obj.transform.localPosition = Vector3.zero;
-            obj.transform.localRotation = Quaternion.identity;
-            obj.transform.localScale = Vector3.one;
+            Debug.LogError($"{bodyObj.name} に FaceController が付いていません！");
         }
-           
+
+        // --- 3. Hair を生成 ---
+        if (data.hairPrefab != null)
+        {
+            GameObject hairObj = Instantiate(data.hairPrefab, hairRoot);
+            var anchor = hairObj.GetComponent<HairAnchor>();
+            if (anchor != null)
+            {
+                hairObj.transform.localPosition = anchor.localPosition;
+                hairObj.transform.localRotation = Quaternion.Euler(anchor.localRotation);
+                hairObj.transform.localScale = anchor.localScale;
+            }
+        }
     }
+
+    // ボタンから呼ぶ用
+    public void OnClickDefault() => currentFace?.SetDefault();
+    public void OnClickSmile() => currentFace?.SetSmile();
+    public void OnClickAngry() => currentFace?.SetAngry();
+    public void OnClickSad() => currentFace?.SetSad();
 }

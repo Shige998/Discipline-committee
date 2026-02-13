@@ -6,16 +6,11 @@ using UnityEngine;
 )]
 public class HumanData : ScriptableObject
 {
-    public Gender gender;
 
-    [Header("Default Parts")]
-    public GameObject bodyOverride;
-    public GameObject hairOverride;
-    public FaceExpressionSet faceOverride;
-}
+    [Header("Parts")]
+    public GameObject bodyPrefab;
+    public GameObject hairPrefab;
 
-public enum Gender
-{
-    Boy,
-    Girl
+    [Header("Face")]
+    public Material faceMaterial;
 }

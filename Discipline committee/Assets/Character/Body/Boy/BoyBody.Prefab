@@ -106,4 +106,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5bab31d9e3f23d442bfd9bbfcbbd536b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FaceController
-  bodyRenderer: {fileID: 376020617517793771}
+  faceRenderer: {fileID: 376020617517793771}
+  defaultface: {fileID: 2100000, guid: 807c6d12e46f2e04595b9bf4e07b89e1, type: 2}
+  smileface: {fileID: 2100000, guid: 417865e5a53ecfe43a5df6e039a0fad9, type: 2}
+  angryface: {fileID: 2100000, guid: 32104ce3ab768674e85904fd80184ca5, type: 2}
+  sadface: {fileID: 2100000, guid: 17ef715afedefab4d911e866dd27d9ff, type: 2}
