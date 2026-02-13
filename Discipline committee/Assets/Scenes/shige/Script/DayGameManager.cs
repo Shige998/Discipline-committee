@@ -1,6 +1,13 @@
 using UnityEngine;
 using System.Collections.Generic;
 
+
+public enum CountMode
+{
+    All,
+    CorrectOnly,
+    WrongOnly
+}
 public class DayGameManager : MonoBehaviour
 {
     [Header("Spawn Setting")]
@@ -15,13 +22,29 @@ public class DayGameManager : MonoBehaviour
     public int CorrectCount = 2;
     public int wrongCount = 3;
 
+    [Header("Count Settings")]
+    public CountMode countMode = CountMode.All;
+
+    public void OnSpawnButtonPressed()
+    {
+
+        int remain = CountRemainingObjects();
+        Debug.Log("残りオブジェクト数 : "+ remain);
+        SpawnObjects();
+    }
+
+    private List<GameObject> spawnedObjects = new List<GameObject>();
+
     void Start()
     {
         SpawnObjects();
     }
 
-    void SpawnObjects()
+    public void SpawnObjects()
     {
+        ClearObjects();
+
+
         List<SmallObjectData> spawnList = new List<SmallObjectData>();
 
         spawnList.AddRange(GetRandom(correctObjects, CorrectCount));
@@ -39,7 +62,18 @@ public class DayGameManager : MonoBehaviour
 
             obj.GetComponent<SmallObjectController>()
                 .Apply(spawnList[i]);
+
+            spawnedObjects.Add(obj);
         }
+    }
+
+    void ClearObjects()
+    {
+     foreach (GameObject obj in spawnedObjects)
+        {
+            Destroy(obj);
+        }
+        spawnedObjects.Clear();
     }
 
     List<SmallObjectData> GetRandom(List<SmallObjectData> list, int count)
@@ -57,6 +91,36 @@ public class DayGameManager : MonoBehaviour
             int r = Random.Range(i, list.Count);
             (list[i], list[r]) = (list[r], list[i]);
         }
+    }
+    public int CountRemainingObjects()
+    {
+        SmallObjectController[] all = FindObjectsOfType<SmallObjectController>();
+
+        int count = 0;
+
+        foreach (var obj in all)
+        {
+            if (obj == null || obj.data == null) continue;
+
+            switch (countMode)
+            {
+                case CountMode.All:
+                    count++;
+                    break;
+
+                case CountMode.CorrectOnly:
+                    if (obj.data.resultType == ObjectResultType.Correct)
+                        count++;
+                    break;
+
+                case CountMode.WrongOnly:
+                    if (obj.data.resultType == ObjectResultType.Wrong)
+                        count++;
+                    break;
+            }
+        }
+
+        return count;
     }
 
 }
