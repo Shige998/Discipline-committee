@@ -18,4 +18,4 @@ MonoBehaviour:
   scale: {x: 0.5, y: 0.5, z: 0.5}
   rotation: {x: -90, y: 0, z: 0}
   resultType: 0
-  karmaValue: 0
+  karmaValue: 20
