@@ -81,6 +81,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 241d03328f3f739469b1aa67b14a4c4d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HairAnchor
-  localPosition: {x: 0, y: 0, z: 1.4}
+  localPosition: {x: -0.02, y: 0, z: 1.45}
   localRotation: {x: 0, y: 0, z: 0}
-  localScale: {x: 0.9, y: 0.9, z: 0.9}
+  localScale: {x: 1, y: 1, z: 1}
