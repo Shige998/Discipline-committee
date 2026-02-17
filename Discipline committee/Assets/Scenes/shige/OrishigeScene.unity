@@ -1697,7 +1697,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 592025778}
         m_TargetAssemblyTypeName: DayGameManager, Assembly-CSharp
-        m_MethodName: SpawnObjects
+        m_MethodName: OnSpawnButtonPressed
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

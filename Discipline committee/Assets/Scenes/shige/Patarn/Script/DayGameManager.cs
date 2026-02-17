@@ -28,8 +28,8 @@ public class DayGameManager : MonoBehaviour
     public void OnSpawnButtonPressed()
     {
 
-        int remain = CountRemainingObjects();
-        Debug.Log("残りオブジェクト数 : "+ remain);
+        EvaluateRemainingObjects();
+
         SpawnObjects();
     }
 
@@ -92,6 +92,38 @@ public class DayGameManager : MonoBehaviour
             (list[i], list[r]) = (list[r], list[i]);
         }
     }
+
+    public void EvaluateRemainingObjects()
+    {
+        SmallObjectController[] remaining = FindObjectsOfType<SmallObjectController>();
+
+        foreach (var obj in remaining)
+        {
+            if (obj == null || obj.data == null) continue;
+
+            // オブジェクトの元の karmaValue を取得
+            int baseValue = Mathf.Abs(obj.data.karmaValue);
+
+            if (obj.data.resultType == ObjectResultType.Correct)
+            {
+                // 正解 → 逆処理でマイナス
+                KarmaManager.Instance.AddKarma(-baseValue);
+
+                Debug.Log($"未クリックの正解 → カルマ -{baseValue}");
+            }
+            else
+            {
+                // 不正解 → 逆処理でプラス
+                KarmaManager.Instance.AddKarma(+baseValue);
+
+                Debug.Log($"未クリックの不正解 → カルマ +{baseValue}");
+            }
+
+            // 最後に削除
+            Destroy(obj.gameObject);
+        }
+    }
+
     public int CountRemainingObjects()
     {
         SmallObjectController[] all = FindObjectsOfType<SmallObjectController>();
