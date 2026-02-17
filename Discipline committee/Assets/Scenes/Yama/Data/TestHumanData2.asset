@@ -12,7 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b3c05e21efc7f84eb36aefa8b56849a, type: 3}
   m_Name: TestHumanData2
   m_EditorClassIdentifier: Assembly-CSharp::HumanData
-  gender: 1
-  bodyOverride: {fileID: 0}
-  hairOverride: {fileID: 0}
-  faceOverride: {fileID: 0}
+  bodyPrefab: {fileID: 864405531638216345, guid: 7d0d0eb4a84cee64b98f2c13d9f34cd6, type: 3}
+  hairPrefab: {fileID: 460821296623585263, guid: f2167b8b6a79353448eb7747c9b68c5c, type: 3}
+  faceMaterial: {fileID: 2100000, guid: 7053c80b1d5cbc64c8e073f8fde56d42, type: 2}
