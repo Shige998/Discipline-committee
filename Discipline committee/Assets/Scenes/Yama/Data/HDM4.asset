@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b3c05e21efc7f84eb36aefa8b56849a, type: 3}
+  m_Name: HDM4
+  m_EditorClassIdentifier: Assembly-CSharp::HumanData
+  bodyPrefab: {fileID: 1436148570418453681, guid: cb123b8fc71225d47aa5779f0fc8fb18, type: 3}
+  hairPrefab: {fileID: 4197587268760789362, guid: 334f5c173a8f479468d52e3438b21e25, type: 3}
+  faceMaterial: {fileID: 2100000, guid: 32104ce3ab768674e85904fd80184ca5, type: 2}
