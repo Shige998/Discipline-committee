@@ -1,4 +1,4 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 using System.Collections.Generic;
 
 
@@ -8,8 +8,14 @@ public enum CountMode
     CorrectOnly,
     WrongOnly
 }
+
 public class DayGameManager : MonoBehaviour
 {
+    [Header("Day Settings")]
+    public int currentDay = 1;   // å¿…ãš 1 ã«ã™ã‚‹
+    public int maxDay = 5;
+
+
     [Header("Spawn Setting")]
     public Transform[] spawnPoints;
     public GameObject smallObjectPrefab;
@@ -18,32 +24,92 @@ public class DayGameManager : MonoBehaviour
     public List<SmallObjectData> correctObjects;
     public List<SmallObjectData> wrongObjects;
 
+    [Header("Wrong Count Settings")]
+    public int baseWrongCount = 1;
+    public int maxWrongCount = 5;
+
     [Header("Count")]
     public int CorrectCount = 2;
-    public int wrongCount = 3;
+    public int wrongCount = 1; // åˆæœŸã¯3å€‹
+
+    [Header("Bitton Count")]
+    public int pressCount = 0;
+    public int pressLimit = 8;
 
     [Header("Count Settings")]
     public CountMode countMode = CountMode.All;
 
-    public void OnSpawnButtonPressed()
-    {
-
-        EvaluateRemainingObjects();
-
-        SpawnObjects();
-    }
-
     private List<GameObject> spawnedObjects = new List<GameObject>();
+
 
     void Start()
     {
+        UpdateDaySettings();
         SpawnObjects();
     }
 
+    // ================================
+    // ãƒœã‚¿ãƒ³ã‚’æŠ¼ã—ãŸæ™‚ã®å‡¦ç†
+    // ================================
+    public void OnSpawnButtonPressed()
+    {
+        EvaluateRemainingObjects();
+
+        pressCount++;
+
+        if (pressCount >= pressLimit)
+        {
+            pressCount = 0;
+            NextDay();
+            if (currentDay <= maxDay)
+            {
+                UpdateDaySettings(); // â† ã“ã“ã§æ—¥ä»˜ã«å¿œã˜ã¦Wrongæ•°ã‚’èª¿æ•´
+            }
+        }
+
+        if (currentDay <= maxDay)
+        {
+            SpawnObjects();
+        }
+    }
+
+    // ================================
+    // æ—¥ä»˜ã‚’é€²ã‚ã‚‹
+    // ================================
+
+
+    void NextDay()
+    {
+        currentDay++;
+
+        Debug.Log("currentDay = " + currentDay);
+
+        if (currentDay > maxDay)
+        {
+            UnityEngine.SceneManagement.SceneManager.LoadScene("EndScene");
+            return;
+        }
+
+        Debug.Log("---- Day " + currentDay + " ----");
+    }
+
+    // ================================
+    // æ—¥ã«ã‚ˆã£ã¦ Wrong ã‚’1ãšã¤å¢—ã‚„ã™
+    // ================================
+    void UpdateDaySettings()
+    {
+        // æ—¥ä»˜ã«å¿œã˜ã¦ Wrong ã‚’ 1 ãšã¤å¢—ã‚„ã™
+        wrongCount = Mathf.Min(baseWrongCount + (currentDay - 1), maxWrongCount);
+
+        Debug.Log($"Day {currentDay}: WrongCount = {wrongCount}");
+    }
+
+    // ================================
+    // ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚¹ãƒãƒ¼ãƒ³
+    // ================================
     public void SpawnObjects()
     {
         ClearObjects();
-
 
         List<SmallObjectData> spawnList = new List<SmallObjectData>();
 
@@ -67,9 +133,38 @@ public class DayGameManager : MonoBehaviour
         }
     }
 
+    // ================================
+    // ã‚¯ãƒªãƒƒã‚¯ã•ã‚Œãªã‹ã£ãŸã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®è©•ä¾¡
+    // ================================
+    public void EvaluateRemainingObjects()
+    {
+        SmallObjectController[] remaining = FindObjectsOfType<SmallObjectController>();
+
+        foreach (var obj in remaining)
+        {
+            if (obj == null || obj.data == null) continue;
+
+            int baseValue = Mathf.Abs(obj.data.karmaValue);
+
+            if (obj.data.resultType == ObjectResultType.Correct)
+            {
+                KarmaManager.Instance.AddKarma(-baseValue);
+            }
+            else
+            {
+                KarmaManager.Instance.AddKarma(+baseValue);
+            }
+
+            Destroy(obj.gameObject);
+        }
+    }
+
+    // ================================
+    // Utility
+    // ================================
     void ClearObjects()
     {
-     foreach (GameObject obj in spawnedObjects)
+        foreach (GameObject obj in spawnedObjects)
         {
             Destroy(obj);
         }
@@ -80,47 +175,15 @@ public class DayGameManager : MonoBehaviour
     {
         List<SmallObjectData> temp = new List<SmallObjectData>(list);
         Shuffle(temp);
-
         return temp.GetRange(0, Mathf.Min(count, temp.Count));
     }
 
     void Shuffle<T>(List<T> list)
     {
-        for (int  i = 0;  i < list.Count;  i++)
+        for (int i = 0; i < list.Count; i++)
         {
             int r = Random.Range(i, list.Count);
             (list[i], list[r]) = (list[r], list[i]);
-        }
-    }
-
-    public void EvaluateRemainingObjects()
-    {
-        SmallObjectController[] remaining = FindObjectsOfType<SmallObjectController>();
-
-        foreach (var obj in remaining)
-        {
-            if (obj == null || obj.data == null) continue;
-
-            // ƒIƒuƒWƒFƒNƒg‚ÌŒ³‚Ì karmaValue ‚ğæ“¾
-            int baseValue = Mathf.Abs(obj.data.karmaValue);
-
-            if (obj.data.resultType == ObjectResultType.Correct)
-            {
-                // ³‰ğ ¨ ‹tˆ—‚Åƒ}ƒCƒiƒX
-                KarmaManager.Instance.AddKarma(-baseValue);
-
-                Debug.Log($"–¢ƒNƒŠƒbƒN‚Ì³‰ğ ¨ ƒJƒ‹ƒ} -{baseValue}");
-            }
-            else
-            {
-                // •s³‰ğ ¨ ‹tˆ—‚Åƒvƒ‰ƒX
-                KarmaManager.Instance.AddKarma(+baseValue);
-
-                Debug.Log($"–¢ƒNƒŠƒbƒN‚Ì•s³‰ğ ¨ ƒJƒ‹ƒ} +{baseValue}");
-            }
-
-            // ÅŒã‚Éíœ
-            Destroy(obj.gameObject);
         }
     }
 
@@ -136,23 +199,16 @@ public class DayGameManager : MonoBehaviour
 
             switch (countMode)
             {
-                case CountMode.All:
-                    count++;
-                    break;
-
+                case CountMode.All: count++; break;
                 case CountMode.CorrectOnly:
-                    if (obj.data.resultType == ObjectResultType.Correct)
-                        count++;
+                    if (obj.data.resultType == ObjectResultType.Correct) count++;
                     break;
-
                 case CountMode.WrongOnly:
-                    if (obj.data.resultType == ObjectResultType.Wrong)
-                        count++;
+                    if (obj.data.resultType == ObjectResultType.Wrong) count++;
                     break;
             }
         }
 
         return count;
     }
-
 }
