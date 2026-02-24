@@ -44,12 +44,26 @@ public class HumanQueueManager : MonoBehaviour
     public void AdvanceLine()
     {
         if (isMoving) return;
+        if (centerHuman == null)
+        {
+            if(waitingHuman == null)
+            {
+                return;
+            }
+        }
 
         StartCoroutine(AdvanceRoutine());
     }
 
     private IEnumerator AdvanceRoutine()
     {
+        if (centerHuman == null)
+        {
+            if (waitingHuman == null)
+            {
+                yield break;
+            }
+        }
         isMoving = true;
 
         // á@ íÜâõÇëﬁèÍàµÇ¢
@@ -89,6 +103,11 @@ public class HumanQueueManager : MonoBehaviour
 
     private IEnumerator MoveTo(GameObject obj, Transform target)
     {
+        if (obj == null)
+        {
+            Debug.LogError("human is NULL!");
+            yield break;
+        }
         Vector3 startPos = obj.transform.position;
         Quaternion startRot = obj.transform.rotation;
 
