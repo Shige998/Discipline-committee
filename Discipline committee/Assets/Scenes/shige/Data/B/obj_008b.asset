@@ -16,6 +16,6 @@ MonoBehaviour:
   mesh: {fileID: -8286731014581093351, guid: 80344ec49af292c49a0cebfc0c9e7f8a, type: 3}
   material: {fileID: -710910164944623929, guid: 80344ec49af292c49a0cebfc0c9e7f8a, type: 3}
   scale: {x: 6, y: 6, z: 6}
-  rotation: {x: 0, y: 0, z: 0}
+  rotation: {x: -90, y: 0, z: 0}
   resultType: 0
   karmaValue: 20

@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SmallObjectData
   displayName: 
   mesh: {fileID: -6998756958108809042, guid: bc10c1e43ef0e9e42a6379145d021961, type: 3}
-  material: {fileID: 8290782892783832528, guid: bc10c1e43ef0e9e42a6379145d021961, type: 3}
+  material: {fileID: 2100000, guid: 8f5f78c7cb32b6f41a2e645fd83e8e70, type: 2}
   scale: {x: 6, y: 6, z: 6}
-  rotation: {x: 0, y: 0, z: 0}
+  rotation: {x: -90, y: 0, z: 0}
   resultType: 0
   karmaValue: 20
