@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: HDG1
   m_EditorClassIdentifier: Assembly-CSharp::HumanData
   bodyPrefab: {fileID: 8598660971626224789, guid: 716ec21cd9b2770418f21d9d7c04b2de, type: 3}
-  hairPrefab: {fileID: 460821296623585263, guid: f2167b8b6a79353448eb7747c9b68c5c, type: 3}
+  hairPrefab: {fileID: 7468459514565579433, guid: f2167b8b6a79353448eb7747c9b68c5c, type: 3}
   faceMaterial: {fileID: 2100000, guid: 7053c80b1d5cbc64c8e073f8fde56d42, type: 2}
