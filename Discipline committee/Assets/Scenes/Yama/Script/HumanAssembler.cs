@@ -34,13 +34,6 @@ public class HumanAssembler : MonoBehaviour
         if (data.hairPrefab != null)
         {
             GameObject hairObj = Instantiate(data.hairPrefab, characterRoot.transform);
-            var anchor = hairObj.GetComponent<HairAnchor>();
-            if (anchor != null)
-            {
-                hairObj.transform.localPosition = anchor.localPosition;
-                hairObj.transform.localRotation = Quaternion.Euler(anchor.localRotation);
-                hairObj.transform.localScale = anchor.localScale;
-            }
         }
         return characterRoot;
     }
