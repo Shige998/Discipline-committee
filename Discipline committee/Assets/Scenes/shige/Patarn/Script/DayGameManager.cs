@@ -1,5 +1,7 @@
-﻿using UnityEngine;
+﻿using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
+using UnityEngine;
 
 
 public enum CountMode
@@ -11,6 +13,8 @@ public enum CountMode
 
 public class DayGameManager : MonoBehaviour
 {
+    public static DayGameManager Instance;
+
     [Header("Day Settings")]
     public int currentDay = 1;   // 必ず 1 にする
     public int maxDay = 5;
@@ -41,7 +45,25 @@ public class DayGameManager : MonoBehaviour
 
     private List<GameObject> spawnedObjects = new List<GameObject>();
 
+    [Header("Human Queue")]
+    public HumanQueueManager humanQueueManager;
 
+    [Header("UI")]
+    public GameObject resultPanel;
+
+
+    private void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
     void Start()
     {
         UpdateDaySettings();
@@ -53,44 +75,34 @@ public class DayGameManager : MonoBehaviour
     // ================================
     public void OnSpawnButtonPressed()
     {
+        StartCoroutine(GameFlow());
+    }
+
+    private IEnumerator GameFlow()
+    {
+        // ① 消す
         EvaluateRemainingObjects();
 
+        // ② キャラ移動
+        if (humanQueueManager != null)
+        {
+            humanQueueManager.AdvanceLine();
+            yield return new WaitUntil(() => !humanQueueManager.IsMoving());
+        }
+
+        // ③ カウント処理
         pressCount++;
 
         if (pressCount >= pressLimit)
         {
             pressCount = 0;
-            NextDay();
-            if (currentDay <= maxDay)
-            {
-                UpdateDaySettings(); // ← ここで日付に応じてWrong数を調整
-            }
-        }
 
-        if (currentDay <= maxDay)
-        {
+            resultPanel.SetActive(true);
+
+            yield break;
+        }
             SpawnObjects();
-        }
-    }
-
-    // ================================
-    // 日付を進める
-    // ================================
-
-
-    void NextDay()
-    {
-        currentDay++;
-
-        Debug.Log("currentDay = " + currentDay);
-
-        if (currentDay > maxDay)
-        {
-            UnityEngine.SceneManagement.SceneManager.LoadScene("EndScene");
-            return;
-        }
-
-        Debug.Log("---- Day " + currentDay + " ----");
+        
     }
 
     // ================================
@@ -187,6 +199,28 @@ public class DayGameManager : MonoBehaviour
         }
     }
 
+
+    public void OnNextDayButton()
+    {
+        // パネル閉じる
+        resultPanel.SetActive(false);
+
+        // 日付進行
+        currentDay++;
+
+        if (currentDay > maxDay)
+        {
+            UnityEngine.SceneManagement.SceneManager.LoadScene("EndScene");
+            return;
+        }
+
+        // 日付設定更新
+        UpdateDaySettings();
+
+        // 次のスポーン
+        SpawnObjects();
+    }
+
     public int CountRemainingObjects()
     {
         SmallObjectController[] all = FindObjectsOfType<SmallObjectController>();
@@ -211,4 +245,6 @@ public class DayGameManager : MonoBehaviour
 
         return count;
     }
+
+    
 }

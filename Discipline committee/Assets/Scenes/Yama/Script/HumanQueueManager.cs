@@ -127,4 +127,8 @@ public class HumanQueueManager : MonoBehaviour
         obj.transform.position = target.position;
         obj.transform.rotation = target.rotation;
     }
+    public bool IsMoving()
+    {
+        return isMoving;
+    }
 }
