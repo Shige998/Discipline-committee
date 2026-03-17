@@ -34,7 +34,7 @@ public class DayGameManager : MonoBehaviour
 
     [Header("Count")]
     public int CorrectCount = 2;
-    public int wrongCount = 1; // 初期は3個
+    public int wrongCount = 1;
 
     [Header("Bitton Count")]
     public int pressCount = 0;

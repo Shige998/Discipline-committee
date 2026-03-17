@@ -19,12 +19,22 @@ public class HumanQueueManager : MonoBehaviour
     public float moveDuration = 0.5f;
 
     private Queue<HumanData> dataQueue;
+    private Queue<GameObject> humanPool = new Queue<GameObject>();
 
     private GameObject waitingHuman;
     private GameObject centerHuman;
     private GameObject leavingHuman;
 
     private bool isMoving = false;
+    public System.Action OnQueueFinished;
+
+    bool IsAllFinished()
+    {
+        return dataQueue.Count == 0
+            && waitingHuman == null
+            && centerHuman == null
+            && leavingHuman == null;
+    }
     private void Awake()
     {
         dataQueue = new Queue<HumanData>(initialHumans);
@@ -86,14 +96,31 @@ public class HumanQueueManager : MonoBehaviour
         leavingHuman = null;
 
         isMoving = false;
+
+        if(IsAllFinished())
+        {
+            Debug.Log("全員終了！");
+            OnQueueFinished();
+            // 呼び出し：OnQueueFinished?.Invoke();
+        }
     }
 
     private GameObject SpawnAt(Transform point)
     {
-        if (dataQueue.Count == 0) return null;
+        GameObject human;
 
-        HumanData data = dataQueue.Dequeue();
-        GameObject human = assembler.Assemble(data);
+        if (humanPool.Count > 0)
+        {
+            human = humanPool.Dequeue();
+            human.SetActive(true);
+        }else
+        {
+            if (dataQueue.Count == 0)return null;
+
+            HumanData data = dataQueue.Dequeue();
+            dataQueue.Enqueue(data); // 循環させる場合は再度キューに戻す
+            human = assembler.Assemble(data);
+        }
 
         human.transform.position = point.position;
         human.transform.rotation = point.rotation;
@@ -105,7 +132,6 @@ public class HumanQueueManager : MonoBehaviour
     {
         if (obj == null)
         {
-            Debug.LogError("human is NULL!");
             yield break;
         }
         Vector3 startPos = obj.transform.position;
