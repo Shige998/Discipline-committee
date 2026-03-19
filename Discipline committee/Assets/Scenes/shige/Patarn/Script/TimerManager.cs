@@ -1,36 +1,53 @@
 using UnityEngine;
 using TMPro;
-using UnityEngine.SceneManagement;
 
 public class TimerManager : MonoBehaviour
 {
     public float timeRemaining = 60f;
     public TMP_Text timerText;
 
-    bool isTimeRunning = true;
+    private bool isTimeRunning = true;
 
+    // 追加
+    public DayGameManager gameManager;
 
     void Update()
     {
-        if (isTimeRunning)
+        if (!isTimeRunning) return;
+
+        timeRemaining -= Time.deltaTime;
+
+        if (timeRemaining <= 0)
         {
-            timeRemaining -= Time.deltaTime;
+            timeRemaining = 0;
+            isTimeRunning = false;
 
-            if (timeRemaining <= 0)
+            // ❗ シーン遷移やめる
+            if (gameManager != null)
             {
-                timeRemaining = 0;
-                isTimeRunning = false;
-
-                SceneManager.LoadScene("EndScene");
+                gameManager.ShowResult(); // ←これを呼ぶ
             }
-            UpdateTimerUI();
         }
-        
+
+        UpdateTimerUI();
     }
 
     void UpdateTimerUI()
     {
         int seconds = Mathf.CeilToInt(timeRemaining);
-        timerText.text = "Time:" +  seconds;
+        timerText.text = "Time:" + seconds;
+    }
+
+    // ⭐ タイマー再スタート用
+    public void ResetTimer()
+    {
+        timeRemaining = 60f;
+        isTimeRunning = true;
+    }
+
+    // ⭐ 停止用
+    public void StopTimer()
+    {
+        isTimeRunning = false;
     }
 }

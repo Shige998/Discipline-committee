@@ -102,7 +102,13 @@ public class DayGameManager : MonoBehaviour
             yield break;
         }
             SpawnObjects();
-        
+        if (pressCount >= pressLimit)
+        {
+            pressCount = 0;
+            ShowResult();
+            yield break;
+        }
+
     }
 
     // ================================
@@ -160,12 +166,13 @@ public class DayGameManager : MonoBehaviour
 
             if (obj.data.resultType == ObjectResultType.Correct)
             {
+                // ❗ Wrongだけマイナスにする
                 KarmaManager.Instance.AddKarma(-baseValue);
+
+                Debug.Log($"未クリックのWrong → カルマ -{baseValue}");
             }
-            else
-            {
-                KarmaManager.Instance.AddKarma(+baseValue);
-            }
+
+            // Correctは何もしない（完全に無視）
 
             Destroy(obj.gameObject);
         }
@@ -202,10 +209,8 @@ public class DayGameManager : MonoBehaviour
 
     public void OnNextDayButton()
     {
-        // パネル閉じる
         resultPanel.SetActive(false);
 
-        // 日付進行
         currentDay++;
 
         if (currentDay > maxDay)
@@ -214,10 +219,14 @@ public class DayGameManager : MonoBehaviour
             return;
         }
 
-        // 日付設定更新
         UpdateDaySettings();
 
-        // 次のスポーン
+        // ⭐ タイマーリセット
+        if (timerManager != null)
+        {
+            timerManager.ResetTimer();
+        }
+
         SpawnObjects();
     }
 
@@ -245,6 +254,19 @@ public class DayGameManager : MonoBehaviour
 
         return count;
     }
+    public TimerManager timerManager;
 
-    
+    public void ShowResult()
+    {
+        resultPanel.SetActive(true);
+
+        // タイマー止める
+        if (timerManager != null)
+        {
+            timerManager.StopTimer();
+        }
+    }
+
+
+
 }
